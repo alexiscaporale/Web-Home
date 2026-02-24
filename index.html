@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solander 898</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:       #0a0a0a;
+            --border:   #222222;
+            --border-2: #333333;
+            --ink:      #f2f2f2;
+            --ink-dim:  #999999;
+            --ink-muted:#555555;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero-logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-logo-mark {
+            width: 88px;
+            height: 88px;
+        }
+
+        .hero-logo-area h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+
+        .hero-desc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-dim);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 22px;
+            border: 1px solid var(--border-2);
+            color: var(--ink-dim);
+            transition: color 0.2s, border-color 0.2s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            color: var(--ink);
+            border-color: #555;
+        }
+
+        .btn.primary {
+            border-color: #444;
+        }
+
+        .btn.primary:hover { border-color: #888; }
+
+        /* ── Footer ── */
+        footer {
+            padding: 1.5rem 2.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--ink-muted);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 520px) {
+            .hero { padding: 4rem 1.5rem 5rem; }
+            .hero-logo-area h2 { font-size: 32px; }
+            .hero-links { flex-direction: column; align-items: center; }
+            .btn { min-width: 180px; }
+            footer { padding: 1.2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hero">
+
+        <div class="hero-logo-area">
+            <svg class="hero-logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" stroke="#333" stroke-width="1.5" fill="#0a0a0a"/>
+                <circle cx="32" cy="32" r="26" stroke="#222" stroke-width="0.5"/>
+                <text x="32" y="32" text-anchor="middle" dominant-baseline="central" font-family="JetBrains Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#f2f2f2" letter-spacing="-0.5">898</text>
+            </svg>
+            <h2>Solander 898</h2>
+        </div>
+
+        <p class="hero-desc">Relaciones con los Inversores</p>
+
+        <div class="hero-links">
+            <a href="filosofia.html" class="btn primary">Filosofía de inversión</a>
+            <a href="contacto.html" class="btn">Contacto</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Solander 898</p>
+        <p>Buenos Aires, Argentina</p>
+    </footer>
+
+</body>
+</html>

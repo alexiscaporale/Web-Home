@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos | Solander 898</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:       #0a0a0a;
+            --border:   #222222;
+            --border-2: #333333;
+            --ink:      #f2f2f2;
+            --ink-dim:  #999999;
+            --ink-muted:#555555;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav ── */
+        nav {
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--ink);
+            text-transform: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--ink-dim);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--ink); }
+
+        /* ── Content ── */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+            flex: 1;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--ink);
+            margin-bottom: 48px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            transition: padding-left 0.2s;
+        }
+
+        .resource-item:hover {
+            padding-left: 8px;
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .resource-info h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .resource-info p {
+            font-size: 13px;
+            color: var(--ink-dim);
+        }
+
+        .resource-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            margin-left: 24px;
+        }
+
+        .file-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            padding: 4px 10px;
+            border: 1px solid var(--border-2);
+        }
+
+        .video-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #cc3333;
+            padding: 4px 10px;
+            border: 1px solid #cc3333;
+        }
+
+        .download-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-dim);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: opacity 0.2s, color 0.2s;
+        }
+
+        .resource-item:hover .download-link {
+            opacity: 1;
+        }
+
+        .download-link:hover {
+            color: var(--ink);
+        }
+
+        .video-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-dim);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: opacity 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-link::before {
+            content: '▶';
+            font-size: 8px;
+            color: #cc3333;
+        }
+
+        .resource-item:hover .video-link {
+            opacity: 1;
+        }
+
+        .video-link:hover {
+            color: var(--ink);
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 1.5rem 2.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--ink-muted);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 24px 60px; }
+            nav { padding: 1.2rem 1.5rem; }
+            .resource-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .resource-meta { margin-left: 0; }
+            .download-link, .video-link { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-area">
+            <svg class="logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" stroke="#333" stroke-width="1.5" fill="#0a0a0a"/>
+                <circle cx="32" cy="32" r="26" stroke="#222" stroke-width="0.5"/>
+                <text x="32" y="32" text-anchor="middle" dominant-baseline="central" font-family="JetBrains Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#f2f2f2" letter-spacing="-0.5">898</text>
+            </svg>
+            <span class="logo-name">Solander 898</span>
+        </a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="filosofia.html">Filosofía</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Recursos</h2>
+
+        <ul class="resource-list">
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Aprendizajes 2025</h3>
+                    <p>Reflexiones anuales sobre inversión, mercados y gestión de riesgos</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="video-badge">Video</span>
+                    <a href="https://www.youtube.com/watch?v=l3zeVBb4ICo" target="_blank" class="video-link">Ver en YouTube</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Presentación Corporativa 2024</h3>
+                    <p>Visión general de la empresa, estrategia y equipo directivo</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">PDF</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Informe Anual 2023-2024</h3>
+                    <p>Estados financieros auditados y revisión del ejercicio</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">PDF</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Datos Financieros Clave</h3>
+                    <p>Histórico de rendimientos, AUM y ratios principales</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">XLSX</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Política de Dividendos</h3>
+                    <p>Criterios de distribución y calendario de pagos</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">PDF</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Estatutos Sociales</h3>
+                    <p>Documento fundacional y normas de gobierno corporativo</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">PDF</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+            <li class="resource-item">
+                <div class="resource-info">
+                    <h3>Política de Inversión Responsable</h3>
+                    <p>Compromisos ESG y criterios de selección de activos</p>
+                </div>
+                <div class="resource-meta">
+                    <span class="file-type">PDF</span>
+                    <a href="#" class="download-link">Descargar →</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2026 Solander 898</p>
+        <p>898 Farnam St LLC</p>
+    </footer>
+
+</body>
+</html>
