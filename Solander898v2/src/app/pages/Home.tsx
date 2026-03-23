@@ -13,10 +13,10 @@ const stats = [
 ];
 
 const pillars = [
-  { code: "01", title: "Preservation", desc: "Capital protection through macro-aware allocation and disciplined risk frameworks." },
-  { code: "02", title: "Growth", desc: "Precision portfolio construction across public and private markets globally." },
-  { code: "03", title: "Legacy", desc: "Generational investment structures that outlast market cycles and individuals." },
-  { code: "04", title: "Access", desc: "Exclusive exposure to private credit, infrastructure, and alternative strategies." },
+  { code: "01", title: "Calidad y durabilidad del negocio", desc: "La calidad del activo subyacente es el punto de partida de cualquier decisión de inversión. Priorizamos empresas con altos retornos sobre el capital y modelos de negocio con ventajas competitivas sostenibles en el tiempo." },
+  { code: "02", title: "Construcción y gestión de la cartera", desc: "Construimos carteras concentradas en las ideas de mayor convicción, con posiciones dimensionadas en función del análisis fundamental y el margen de seguridad de cada inversión. La diversificación no es un objetivo en sí mismo, sino la consecuencia natural de un proceso de selección riguroso y disciplinado." },
+  { code: "03", title: "Valoración independiente y margen de seguridad", desc: "Compramos cuando el precio ofrece un margen de seguridad suficiente o cuando el mercado está malpreciando los riesgos de un activo. Vendemos cuando la tesis de inversión deja de ser válida o cuando el equipo gestor desvía el foco estratégico del negocio." },
+  { code: "04", title: "Gestión conservadora y orientada al largo plazo", desc: "Evitamos riesgos innecesarios y no perseguimos retornos rápidos. Buscamos construir relaciones duraderas con clientes que comparten nuestra visión de largo plazo, convencidos de que la disciplina y la paciencia son, en sí mismas, una ventaja competitiva." },
 ];
 
 export function Home() {
@@ -53,12 +53,12 @@ export function Home() {
           className="relative z-10 text-center max-w-4xl w-full"
         >
           {/* Label */}
-          <p className="text-[#BBC1CE] text-xs tracking-[0.4em] uppercase mb-12">
-            Investment Management — London
+          <p className="text-[#BBC1CE] text-sm tracking-[0.4em] uppercase mb-12">
+            Preservación de patrimonio, construcción de valor
           </p>
 
           {/* Large logo */}
-          <div className="flex justify-center mb-14">
+          <div className="flex justify-center mb-8" style={{ transform: "scale(1.4)" }}>
             <Logo size="lg" />
           </div>
 
@@ -66,26 +66,9 @@ export function Home() {
           <div className="w-12 h-px bg-[#282828] mx-auto mb-12" />
 
           {/* Sub */}
-          <p className="text-[#555] text-sm leading-relaxed max-w-lg mx-auto mb-12" style={{ fontStyle: "italic" }}>
-            We manage capital for institutions and families who view wealth<br />
-            not as an outcome, but as a responsibility.
+          <p className="text-[#555] text-base leading-relaxed max-w-lg mx-auto mb-12">
+            Asesor de inversiones regulado por la SEC
           </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/brand"
-              className="flex items-center gap-3 px-8 py-3 bg-[#BBC1CE] text-[#080808] text-xs tracking-[0.2em] uppercase hover:bg-[#D4D8E0] transition-colors"
-            >
-              Brand Manual <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <Link
-              to="/templates"
-              className="flex items-center gap-3 px-8 py-3 border border-[#282828] text-[#555] text-xs tracking-[0.2em] uppercase hover:border-[#BBC1CE]/40 hover:text-[#E4E4E4] transition-colors"
-            >
-              Doc Templates
-            </Link>
-          </div>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -104,7 +87,7 @@ export function Home() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="border-y border-[#181818] py-16">
+      <section className="border-y border-[#181818] py-16" style={{ display: "none" }}>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-[#181818]">
           {stats.map((stat, i) => (
             <motion.div
@@ -125,7 +108,7 @@ export function Home() {
       </section>
 
       {/* ── Pillars ── */}
-      <section className="py-28 px-6">
+      <section id="filosofia" className="py-28 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -135,9 +118,9 @@ export function Home() {
           >
             <div className="w-px h-16 bg-[#BBC1CE]/30 flex-shrink-0 mt-1" />
             <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-3">Core Disciplines</p>
-              <h2 className="text-3xl md:text-4xl text-[#E4E4E4]" style={{ fontWeight: 300 }}>
-                Built on structure.<br />Refined through experience.
+              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-3">FILOSOFÍA</p>
+              <h2 className="text-2xl md:text-3xl text-[#E4E4E4]" style={{ fontWeight: 300 }}>
+                Disciplina de inversión fundamentada en el análisis riguroso, la convicción independiente y el horizonte de largo plazo.
               </h2>
             </div>
           </motion.div>
@@ -152,7 +135,6 @@ export function Home() {
                 transition={{ delay: i * 0.08 }}
                 className="bg-[#080808] p-8 hover:bg-[#0E0E0E] transition-colors group"
               >
-                <p className="text-[#BBC1CE] text-xs mb-6 tracking-[0.2em]">{p.code}</p>
                 <p className="text-[#E4E4E4] text-base mb-4 group-hover:text-white transition-colors" style={{ fontWeight: 400 }}>
                   {p.title}
                 </p>
@@ -163,91 +145,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── Brand preview ── */}
-      <section className="py-28 px-6 bg-[#060606] border-y border-[#181818]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-3">Identity System</p>
-            <h2 className="text-3xl md:text-4xl text-[#E4E4E4]" style={{ fontWeight: 300 }}>
-              A mark of precision.
-            </h2>
-          </motion.div>
-
-          {/* Logo variants on different backgrounds */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#181818] mb-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-[#080808] flex items-center justify-center py-16 px-8"
-            >
-              <Logo size="md" variant="dark" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-[#EFEFEF] flex items-center justify-center py-16 px-8"
-            >
-              <Logo size="md" variant="light" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-[#181818] flex items-center justify-center py-16 px-8"
-            >
-              <Logo size="md" variant="dark" showWordmark={false} />
-            </motion.div>
-          </div>
-
-          {/* Color palette strip */}
-          <div className="grid grid-cols-5 h-16">
-            {[
-              { bg: "#080808", label: "Obsidian" },
-              { bg: "#181818", label: "Deep" },
-              { bg: "#BBC1CE", label: "Platinum" },
-              { bg: "#E4E4E4", label: "Ash White" },
-              { bg: "#555555", label: "Stone" },
-            ].map((c) => (
-              <div
-                key={c.bg}
-                className="flex items-end pb-2 px-3"
-                style={{ backgroundColor: c.bg }}
-              >
-                <span className="text-[8px] tracking-widest uppercase opacity-50"
-                  style={{ color: c.bg === "#080808" || c.bg === "#181818" || c.bg === "#555555" ? "#fff" : "#000" }}>
-                  {c.label}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-10 flex justify-end"
-          >
-            <Link
-              to="/brand"
-              className="flex items-center gap-3 text-[#BBC1CE] text-xs tracking-[0.2em] uppercase hover:text-[#E4E4E4] transition-colors"
-            >
-              Explore Brand Manual <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
-      <section className="py-32 px-6">
+      <section id="contacto" className="py-32 px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -255,20 +154,19 @@ export function Home() {
           className="max-w-2xl mx-auto"
         >
           <div className="flex items-start gap-6">
-            <LogoMark size={48} variant="dark" />
             <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-4">New Client Enquiries</p>
+              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-4">Contacto</p>
               <h2 className="text-3xl md:text-4xl text-[#E4E4E4] mb-5" style={{ fontWeight: 300 }}>
-                Begin the conversation.
+                Gestionamos capital para quienes conciben el patrimonio no como un fin, sino como un instrumento de creación de valor.
               </h2>
               <p className="text-[#555] text-sm leading-relaxed mb-8">
-                We accept a limited number of new mandates each year. All conversations are conducted with full discretion.
+                Trabajamos con un número reducido de clientes.
               </p>
               <a
                 href="mailto:info@solander898.com"
                 className="inline-flex items-center gap-3 px-8 py-3 bg-[#BBC1CE] text-[#080808] text-xs tracking-[0.2em] uppercase hover:bg-[#D4D8E0] transition-colors"
               >
-                Request Consultation <ArrowRight className="w-3.5 h-3.5" />
+                Contacto <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

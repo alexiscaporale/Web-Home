@@ -12,9 +12,8 @@ export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Brand Manual", path: "/brand" },
-    { name: "Templates", path: "/templates" },
+    { name: "FILOSOFÍA", path: "#filosofia" },
+    { name: "CONTACTO", path: "#contacto" },
   ];
 
   return (
@@ -32,29 +31,20 @@ export function Layout() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.path}
-                to={link.path}
+                href={link.path}
                 className={clsx(
                   "text-xs tracking-[0.18em] uppercase transition-colors duration-200",
-                  location.pathname === link.path
-                    ? "text-[#BBC1CE]"
-                    : "text-[#555] hover:text-[#E4E4E4]"
+                  "text-[#555] hover:text-[#E4E4E4]"
                 )}
                 style={{ fontFamily: FONT_MONO }}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
-            <a
-              href="mailto:info@solander898.com"
-              className="px-5 py-2 border border-[#BBC1CE]/30 text-[#BBC1CE] text-xs tracking-[0.18em] uppercase hover:bg-[#BBC1CE] hover:text-[#080808] transition-all duration-200"
-              style={{ fontFamily: FONT_MONO }}
-            >
-              Contact
-            </a>
-          </div>
 
+          </div>
           <button
             className="md:hidden text-[#E4E4E4] p-1"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -75,16 +65,17 @@ export function Layout() {
           >
             <div className="flex flex-col gap-6 pt-8 border-t border-[#282828]">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   onClick={() => setIsMenuOpen(false)}
                   className="text-2xl text-[#E4E4E4] hover:text-[#BBC1CE] transition-colors tracking-[0.1em] uppercase"
                   style={{ fontFamily: FONT_MONO, fontWeight: 300 }}
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
+
             </div>
           </motion.div>
         )}
@@ -98,51 +89,23 @@ export function Layout() {
       {/* Footer */}
       <footer className="bg-[#080808] border-t border-[#1E1E1E] py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             <div className="space-y-5">
               <Logo size="sm" />
               <p className="text-[#555] text-xs leading-relaxed max-w-[220px]" style={{ fontFamily: FONT_MONO }}>
-                Investment management for institutions and families who think in generations.
+                Preservación de patrimonio, construcción de valor
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[#555] text-xs leading-relaxed max-w-[300px]" style={{ fontFamily: FONT_MONO }}>
+                The content is developed from sources believed to be providing accurate information. The information in this material is not intended as tax or legal advice. Please consult legal or tax professionals for specific information regarding your individual situation.
               </p>
             </div>
 
             <div>
               <p className="text-[#BBC1CE] text-xs tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
-                Navigate
-              </p>
-              <ul className="space-y-3">
-                {navLinks.map((l) => (
-                  <li key={l.path}>
-                    <Link
-                      to={l.path}
-                      className="text-[#555] text-xs hover:text-[#E4E4E4] transition-colors tracking-wide"
-                      style={{ fontFamily: FONT_MONO }}
-                    >
-                      {l.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
-                Legal
-              </p>
-              <ul className="space-y-3">
-                {["Privacy Policy", "Terms of Service", "Disclosures"].map((t) => (
-                  <li key={t}>
-                    <a href="#" className="text-[#555] text-xs hover:text-[#E4E4E4] transition-colors" style={{ fontFamily: FONT_MONO }}>
-                      {t}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
-                Contact
+                CONTACTO
               </p>
               <ul className="space-y-3 text-[#555] text-xs" style={{ fontFamily: FONT_MONO }}>
                 <li>1 Mayfair Place</li>
