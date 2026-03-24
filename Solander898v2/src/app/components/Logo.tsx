@@ -25,14 +25,22 @@ export function Logo({
   className = "",
 }: LogoProps) {
   const dim = {
-    sm: { mark: 30, wm: 11,  gap: 9,  track: 3   },
-    md: { mark: 40, wm: 13,  gap: 11, track: 3.5 },
-    lg: { mark: 56, wm: 17,  gap: 16, track: 4   },
+    sm: { image: 60, wm: 11,  gap: 9,  track: 3   },
+    md: { image: 80, wm: 13,  gap: 11, track: 3.5 },
+    lg: { image: 120, wm: 17,  gap: 16, track: 4   },
   }[size];
 
   return (
     <div className={`inline-flex items-center ${className}`} style={{ gap: dim.gap }}>
-      <LogoMark size={dim.mark} variant={variant} />
+      <img 
+        src="/Web-Home/solanderlogo.jpg" 
+        alt="Solander Logo" 
+        style={{ 
+          width: dim.image, 
+          height: dim.image,
+          objectFit: "contain"
+        }}
+      />
       {showWordmark && (
         <div style={{ fontFamily: MONO, lineHeight: 1 }}>
           {/* SOLANDER898 — inline, two-tone */}
