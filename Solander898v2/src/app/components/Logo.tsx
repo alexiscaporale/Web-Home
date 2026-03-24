@@ -31,18 +31,19 @@ export function Logo({
   }[size];
 
   return (
-    <div className={`inline-flex items-center ${className}`} style={{ gap: dim.gap }}>
-      <img 
-        src="/Web-Home/solanderlogo.jpg" 
-        alt="Solander Logo" 
-        style={{ 
-          width: dim.image, 
-          height: dim.image,
-          objectFit: "contain"
-        }}
-      />
-      {showWordmark && (
-        <div style={{ fontFamily: MONO, lineHeight: 1 }}>
+    // Logo.tsx — añade shrink-0 y whitespace-nowrap al wrapper del texto
+<div className={`inline-flex items-center shrink-0 ${className}`} style={{ gap: dim.gap }}>
+  <img 
+    src="/Web-Home/solanderlogo.jpg" 
+    style={{ 
+      width: dim.image, 
+      height: dim.image,
+      objectFit: "contain",
+      flexShrink: 0   // ← añade esto
+    }}
+  />
+  {showWordmark && (
+    <div style={{ fontFamily: MONO, lineHeight: 1, whiteSpace: "nowrap" }}>  {/* ← añade whiteSpace */}
           {/* SOLANDER898 — inline, two-tone */}
           <span style={{
             fontSize: dim.wm,
