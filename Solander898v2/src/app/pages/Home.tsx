@@ -58,9 +58,12 @@ export function Home() {
           </p>
 
           {/* Large logo */}
-          <div className="flex justify-center mb-8" style={{ transform: "scale(1.4)" }}>
-            <Logo size="lg" />
-          </div>
+         <div className="flex justify-center mb-8">
+  <Logo size="sm" className="md:hidden" />
+  <div className="hidden md:block" style={{ transform: "scale(1.4)" }}>
+    <Logo size="lg" />
+  </div>
+</div>
 
           {/* Rule */}
           <div className="w-12 h-px bg-[#282828] mx-auto mb-12" />
