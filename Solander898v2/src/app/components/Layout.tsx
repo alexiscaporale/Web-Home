@@ -28,8 +28,7 @@ export default function Layout() {
       {/* Sidebar - Desktop */}
       <aside className="hidden md:flex flex-col w-64 bg-[#0C0C0C] text-[#F4EFE6] border-r border-[#1E1E1E]">
         <div className="p-6 border-b border-[#1E1E1E]">
-          <h1 className="text-xl font-serif tracking-widest text-[#C4A35A]">SOLANDER898</h1>
-          <p className="text-xs text-[#7A7570] mt-1 tracking-widest uppercase">Brand Manual</p>
+         <h1 className="text-lg font-serif tracking-wider md:tracking-widest text-[#C4A35A] shrink-0">SOLANDER898</h1>          <p className="text-xs text-[#7A7570] mt-1 tracking-widest uppercase">Brand Manual</p>
         </div>
         
         <nav className="flex-1 py-6 px-3 space-y-1">
