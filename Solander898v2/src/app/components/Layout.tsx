@@ -61,7 +61,7 @@ export default function Layout() {
 
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-[#0C0C0C] text-[#F4EFE6] p-4 flex justify-between items-center border-b border-[#1E1E1E]">
-        <h1 className="text-lg font-serif tracking-widest text-[#C4A35A]">SOLANDER898</h1>
+        <h1 className="text-lg font-serif tracking-widest text-[#C4A35A] shrink-0">SOLANDER898</h1>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
