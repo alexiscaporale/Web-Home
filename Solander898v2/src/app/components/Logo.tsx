@@ -25,24 +25,25 @@ export function Logo({
   className = "",
 }: LogoProps) {
   const dim = {
-    sm: { image: 60, wm: 11,  gap: 9,  track: 3   },
+    sm: { image: 40, wm: 11,  gap: 9,  track: 3   },
     md: { image: 80, wm: 13,  gap: 11, track: 3.5 },
     lg: { image: 120, wm: 17,  gap: 16, track: 4   },
   }[size];
 
   return (
-    <div className={`inline-flex items-center ${className}`} style={{ gap: dim.gap }}>
-      <img 
-        src="/Web-Home/solanderlogo.jpg" 
-        alt="Solander Logo" 
-        style={{ 
-          width: dim.image, 
-          height: dim.image,
-          objectFit: "contain"
-        }}
-      />
-      {showWordmark && (
-        <div style={{ fontFamily: MONO, lineHeight: 1 }}>
+    // Logo.tsx — añade shrink-0 y whitespace-nowrap al wrapper del texto
+<div className={`inline-flex items-center shrink-0 ${className}`} style={{ gap: dim.gap }}>
+  <img 
+    src="/Web-Home/solanderlogo.jpg" 
+    style={{ 
+      width: dim.image, 
+      height: dim.image,
+      objectFit: "contain",
+      flexShrink: 0   // ← añade esto
+    }}
+  />
+  {showWordmark && (
+    <div style={{ fontFamily: MONO, lineHeight: 1, whiteSpace: "nowrap" }}>  {/* ← añade whiteSpace */}
           {/* SOLANDER898 — inline, two-tone */}
           <span style={{
             fontSize: dim.wm,

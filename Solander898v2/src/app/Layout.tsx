@@ -93,7 +93,7 @@ export function Layout() {
             <div className="space-y-5">
               <Logo size="sm" />
               <p className="text-[#555] text-xs leading-relaxed max-w-[220px]" style={{ fontFamily: FONT_MONO }}>
-                Preservación de patrimonio, construcción de valor
+                Daniel Carl Solander, botánico y explorador sueco, creador del sistema utilizado para conservar obras de arte en museos.
               </p>
             </div>
 
