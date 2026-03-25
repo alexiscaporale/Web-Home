@@ -58,10 +58,9 @@ export function Home() {
           </p>
 
           {/* Large logo */}
-         <div className="flex justify-center mb-8">
-  <Logo size="sm" className="md:hidden" />
-  <div className="hidden md:block" style={{ transform: "scale(1.4)" }}>
-    <Logo size="lg" />
+        <div className="flex justify-center mb-8">
+  <div style={{ transform: window.innerWidth < 768 ? "scale(1)" : "scale(1.4)" }}>
+    <Logo size={window.innerWidth < 768 ? "sm" : "lg"} />
   </div>
 </div>
 
