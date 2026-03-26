@@ -60,10 +60,9 @@ export function Home() {
           {/* Large logo */}
         <div className="flex justify-center mb-8">
   <div style={{ transform: window.innerWidth < 768 ? "scale(1)" : "scale(1.4)" }}>
-    <Logo size={window.innerWidth < 768 ? "sm" : "lg"} />
+    <Logo size={window.innerWidth < 768 ? "md" : "lg"} />
   </div>
 </div>
-
           {/* Rule */}
           <div className="w-12 h-px bg-[#282828] mx-auto mb-12" />
 
