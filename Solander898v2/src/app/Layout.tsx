@@ -10,6 +10,11 @@ const FONT_MONO = "'JetBrains Mono', monospace";
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: '', path: '/' },
+  
+  ];
+
   return (
     <div
       className="min-h-screen bg-[#080808] text-[#E4E4E4]"
