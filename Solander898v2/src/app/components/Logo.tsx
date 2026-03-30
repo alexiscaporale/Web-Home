@@ -34,7 +34,7 @@ export function Logo({
     // Logo.tsx — añade shrink-0 y whitespace-nowrap al wrapper del texto
 <div className={`inline-flex items-center shrink-0 ${className}`} style={{ gap: dim.gap }}>
   <img 
-    src="/Web-Home/solanderlogo.jpg" 
+    src="solanderlogo.jpg" 
     style={{ 
       width: dim.image, 
       height: dim.image,
