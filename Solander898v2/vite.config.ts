@@ -4,9 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/Web-Home/',
+  base: '/', // Cambia '/Web-Home/' por '/'
   build: {
-    outDir: '../docs',
+    outDir: 'dist', // Te recomiendo usar 'dist' para Vercel
     emptyOutDir: true,
   },
   plugins: [
