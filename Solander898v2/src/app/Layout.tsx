@@ -8,7 +8,6 @@ import { Logo } from "./components/Logo";
 const FONT_MONO = "'JetBrains Mono', monospace";
 
 export function Layout() {
-  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
