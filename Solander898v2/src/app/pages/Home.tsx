@@ -109,70 +109,9 @@ export function Home() {
       </section>
 
       {/* ── Pillars ── */}
-      <section id="filosofia" className="py-28 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 flex items-start gap-6"
-          >
-            <div className="w-px h-16 bg-[#BBC1CE]/30 flex-shrink-0 mt-1" />
-            <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-3">FILOSOFÍA</p>
-              <h2 className="text-2xl md:text-3xl text-[#E4E4E4]" style={{ fontWeight: 300 }}>
-                Disciplina de inversión fundamentada en el análisis riguroso, la convicción independiente y el horizonte de largo plazo.
-              </h2>
-            </div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818]">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={p.code}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-[#080808] p-8 hover:bg-[#0E0E0E] transition-colors group"
-              >
-                <p className="text-[#E4E4E4] text-base mb-4 group-hover:text-white transition-colors" style={{ fontWeight: 400 }}>
-                  {p.title}
-                </p>
-                <p className="text-[#444] text-xs leading-relaxed">{p.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* ── CTA ── */}
-      <section id="contacto" className="py-32 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="flex items-start gap-6">
-            <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.3em] uppercase mb-4">Contacto</p>
-              <h2 className="text-3xl md:text-4xl text-[#E4E4E4] mb-5" style={{ fontWeight: 300 }}>
-                Gestionamos capital para quienes conciben el patrimonio no como un fin, sino como un instrumento de creación de valor.
-              </h2>
-              <p className="text-[#555] text-sm leading-relaxed mb-8">
-                Trabajamos con un número reducido de clientes.
-              </p>
-              <a
-                href="mailto:info@solander898.com"
-                className="inline-flex items-center gap-3 px-8 py-3 bg-[#BBC1CE] text-[#080808] text-xs tracking-[0.2em] uppercase hover:bg-[#D4D8E0] transition-colors"
-              >
-                Contacto <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </section>
+      
     </div>
   );
 }
