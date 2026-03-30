@@ -11,7 +11,10 @@ export function Layout() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  
+  const navLinks = [
+    { name: 'Inicio', path: '/' },
+    { name: 'Manual', path: '/brand' },
+    { name: 'Plantillas', path: '/templates' }
   ];
 
   return (
