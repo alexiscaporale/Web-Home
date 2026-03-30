@@ -114,4 +114,6 @@ export function Home() {
       
   
   );
-}
+  
+</div>
+)}
