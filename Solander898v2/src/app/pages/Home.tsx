@@ -53,9 +53,7 @@ export function Home() {
           className="relative z-10 text-center max-w-4xl w-full"
         >
           {/* Label */}
-          <p className="text-[#BBC1CE] text-sm tracking-[0.4em] uppercase mb-12">
-            Preservación de patrimonio, construcción de valor
-          </p>
+          
 
           {/* Large logo */}
         <div className="flex justify-center mb-8">
