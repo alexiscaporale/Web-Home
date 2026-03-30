@@ -108,9 +108,9 @@ export function Layout() {
                 CONTACTO
               </p>
               <ul className="space-y-3 text-[#555] text-xs" style={{ fontFamily: FONT_MONO }}>
-                <li>1 Mayfair Place</li>
-                <li>London W1J 8AJ</li>
-                <li>+44 20 7123 4567</li>
+                <li></li>
+                <li></li>
+                <li></li>
                 <li>info@solander898.com</li>
               </ul>
             </div>

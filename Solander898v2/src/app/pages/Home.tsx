@@ -68,7 +68,7 @@ export function Home() {
 
           {/* Sub */}
           <p className="text-[#555] text-base leading-relaxed max-w-lg mx-auto mb-12">
-            Asesor de inversiones regulado por la SEC
+            info@solander898.com
           </p>
         </motion.div>
 
