@@ -92,13 +92,13 @@ export function Layout() {
             <div className="space-y-5">
               <Logo size="sm" />
               <p className="text-[#555] text-xs leading-relaxed max-w-[220px]" style={{ fontFamily: FONT_MONO }}>
-                Daniel Carl Solander, botánico y explorador sueco, creador del sistema utilizado para conservar obras de arte en museos.
+                Daniel Carl Solander, Swedish botanist and explorer, creator of the system used to preserve works of art in museums.
               </p>
             </div>
 
             <div>
               <p className="text-[#555] text-xs leading-relaxed max-w-[300px]" style={{ fontFamily: FONT_MONO }}>
-                The content is developed from sources believed to be providing accurate information. The information in this material is not intended as tax or legal advice. Please consult legal or tax professionals for specific information regarding your individual situation.
+                Solander 898 is a trade name of 898 Farnam St, LLC. 898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission and currently provides services only to non-U.S. clients in jurisdictions where it is permitted to do so. Registration does not imply a certain level of skill or training. The information provided is for informational purposes only and does not constitute investment, legal, or tax advice or an offer to buy or sell securities or investment advisory services. Past performance is not indicative of future results. See full disclosures.
               </p>
             </div>
 
