@@ -104,7 +104,7 @@ export function Layout() {
 
             <div>
               <p className="text-[#BBC1CE] text-xs tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
-                CONTACTO
+                CONTACT US
               </p>
               <ul className="space-y-3 text-[#555] text-xs" style={{ fontFamily: FONT_MONO }}>
                 <li></li>
@@ -116,7 +116,7 @@ export function Layout() {
           </div>
 
           <div className="border-t border-[#1E1E1E] pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-[#383838] text-xs" style={{ fontFamily: FONT_MONO }}>
-            <span>© 2026 Solander898 Ltd. All rights reserved.</span>
+            <span>© 2026 898 Farnam St, LLC. All rights reserved.</span>
             <span className="tracking-[0.2em] uppercase">Version 1.0</span>
           </div>
         </div>
