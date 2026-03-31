@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { BrandManual } from "./pages/BrandManual";
 import { DocTemplates } from "./pages/DocTemplates";
 import { NotFound } from "./pages/NotFound";
+import { Disclosures } from "./pages/Disclosures"; // 1. Añade esta línea
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "brand", Component: BrandManual },
       { path: "templates", Component: DocTemplates },
+      { path: "disclosures", Component: Disclosures }, // 2. Añade esta línea
       { path: "*", Component: NotFound },
     ],
   },

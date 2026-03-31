@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./components/Logo";
 
-const FONT_MONO = "'JetBrains Mono', monospace";
+export const FONT_MONO = '"JetBrains Mono", monospace';
 
 export function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,34 +89,38 @@ export function Layout() {
       <footer className="bg-[#080808] border-t border-[#1E1E1E] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            {/* Column 1: Logo & Bio */}
             <div className="space-y-5">
               <Logo size="sm" />
-              <p className="text-[#555] text-xs leading-relaxed max-w-[220px]" style={{ fontFamily: FONT_MONO }}>
+              <p className="text-[#555] text-[10px] leading-relaxed max-w-[220px] uppercase tracking-wider" style={{ fontFamily: FONT_MONO }}>
                 Daniel Carl Solander, Swedish botanist and explorer, creator of the system used to preserve works of art in museums.
               </p>
             </div>
 
+            {/* Column 2: Legal Summary */}
             <div>
-              <p className="text-[#555] text-xs leading-relaxed max-w-[300px]" style={{ fontFamily: FONT_MONO }}>
-                Solander 898 is a trade name of 898 Farnam St, LLC. 898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission and currently provides services only to non-U.S. clients in jurisdictions where it is permitted to do so. Registration does not imply a certain level of skill or training. The information provided is for informational purposes only and does not constitute investment, legal, or tax advice or an offer to buy or sell securities or investment advisory services. Past performance is not indicative of future results. See full disclosures.
+              <p className="text-[#555] text-[10px] leading-relaxed max-w-[300px] uppercase tracking-wider" style={{ fontFamily: FONT_MONO }}>
+                Solander 898 is a trade name of 898 Farnam St, LLC. 898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission and currently provides services only to non-U.S. clients in jurisdictions where it is permitted to do so. Registration does not imply a certain level of skill or training. The information provided is for informational purposes only and does not constitute investment, legal, or tax advice or an offer to buy or sell securities or investment advisory services. Past performance is not indicative of future results. {' '}
+                <Link to="/disclosures" className="text-[#E4E4E4] hover:underline decoration-[#383838] underline-offset-4">
+                  See full disclosures.
+                </Link>
               </p>
             </div>
 
+            {/* Column 3: Contact */}
             <div>
-              <p className="text-[#BBC1CE] text-xs tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
+              <p className="text-[#383838] text-[10px] tracking-[0.2em] uppercase mb-5" style={{ fontFamily: FONT_MONO }}>
                 CONTACT US
               </p>
-              <ul className="space-y-3 text-[#555] text-xs" style={{ fontFamily: FONT_MONO }}>
-                <li></li>
-                <li></li>
-                <li></li>
+              <ul className="text-[#555] text-[10px] tracking-[0.15em] uppercase" style={{ fontFamily: FONT_MONO }}>
                 <li>info@solander898.com</li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-[#1E1E1E] pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-[#383838] text-xs" style={{ fontFamily: FONT_MONO }}>
-            <span>© 2026 898 Farnam St, LLC. All rights reserved.</span>
+          {/* Bottom Bar */}
+          <div className="border-t border-[#1E1E1E] pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-[#383838] text-[9px]" style={{ fontFamily: FONT_MONO }}>
+            <span className="tracking-[0.2em] uppercase">© 2026 898 Farnam St, LLC. All rights reserved.</span>
             <span className="tracking-[0.2em] uppercase">Version 1.0</span>
           </div>
         </div>
