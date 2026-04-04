@@ -1,170 +1,161 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solander 898 | Investor Relations Aesthetic</title>
+    <title>Solander 898</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'gs-red': '#E11F26',
-                        'gs-dark': '#212121',
-                        'gs-gray': '#F8F9FA',
-                        'gs-border': '#EEEEEE'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #212121; }
-        .section-divider { border-bottom: 1px solid #EEEEEE; }
-        .hover-red:hover { color: #E11F26; transition: 0.3s; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        /* Estilo exacto de enlaces de GameStop */
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .top-nav-bg {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+        .main-header {
+            border-bottom: 4px solid #333;
+        }
+        .section-title {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.25rem;
+        }
+        .sidebar-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .stock-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+        .table-row {
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+        }
     </style>
 </head>
-<body class="bg-white">
+<body>
 
-    <nav class="fixed top-0 w-full bg-white border-b border-gs-border z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-gs-dark rounded-full flex items-center justify-center overflow-hidden">
-                   <span class="text-white text-xs font-bold">S898</span>
-                </div>
-                <span class="font-bold tracking-tighter text-xl">SOLANDER <span class="text-gs-red">898</span></span>
-            </div>
-            <div class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest text-gs-dark">
-                <a href="#overview" class="hover-red">Overview</a>
-                <a href="#philosophy" class="hover-red">Philosophy</a>
-                <a href="#disclosures" class="hover-red">Disclosures</a>
-                <a href="mailto:info@solander898.com" class="bg-gs-red text-white px-4 py-2 hover:bg-black transition-all">Contact Us</a>
-            </div>
+    <div class="top-nav-bg py-2">
+        <div class="max-w-6xl mx-auto px-4 flex justify-end gap-6 text-xs uppercase tracking-tighter text-gray-600">
+            <a href="#" class="text-gray-600">Contact</a>
+            <a href="#" class="text-gray-600">Email Alerts</a>
+            <a href="#" class="text-gray-600">RSS Feeds</a>
         </div>
-    </nav>
+    </div>
 
-    <section id="overview" class="pt-40 pb-20 border-b border-gs-border bg-gs-gray">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <h2 class="text-gs-red font-bold uppercase tracking-widest text-sm mb-4">Investment Management</h2>
-                <h1 class="text-5xl md:text-6xl font-bold text-gs-dark mb-8 leading-tight">
-                    Preserving capital through <br> rigorous botanical discipline.
-                </h1>
-                <p class="text-xl text-gray-600 leading-relaxed mb-10">
-                    Solander 898 applies the systematic precision of Daniel Carl Solander to the world of modern finance, ensuring every investment is curated, classified, and protected.
-                </p>
+    <header class="main-header py-6">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-black tracking-tighter">SOLANDER <span class="text-gray-500">898</span></h1>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1">Investor Relations</p>
             </div>
+            <nav class="flex gap-8 text-sm font-bold uppercase">
+                <a href="#" class="text-black hover:no-underline">Overview</a>
+                <a href="#" class="text-black hover:no-underline">News</a>
+                <a href="#" class="text-black hover:no-underline">Filings</a>
+                <a href="#" class="text-black hover:no-underline">Governance</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <section class="py-12 border-b border-gs-border">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="border-l-4 border-gs-red pl-6 py-2">
-                    <p class="text-sm text-gray-500 uppercase font-bold">AUM</p>
-                    <p class="text-3xl font-bold">$4.2B</p>
+    <section class="bg-gray-50 border-b border-gray-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center">
+            <div>
+                <h2 class="text-sm font-bold uppercase text-gray-500 mb-2">Solander 898 Common Stock</h2>
+                <div class="flex items-baseline gap-4">
+                    <span class="stock-price">$42.00</span>
+                    <span class="text-green-600 font-bold">+1.25 (3.06%)</span>
                 </div>
-                <div class="border-l-4 border-gs-red pl-6 py-2">
-                    <p class="text-sm text-gray-500 uppercase font-bold">Experience</p>
-                    <p class="text-3xl font-bold">28+ Yrs</p>
-                </div>
-                <div class="border-l-4 border-gs-red pl-6 py-2">
-                    <p class="text-sm text-gray-500 uppercase font-bold">Retention</p>
-                    <p class="text-3xl font-bold">98%</p>
-                </div>
-                <div class="border-l-4 border-gs-red pl-6 py-2">
-                    <p class="text-sm text-gray-500 uppercase font-bold">Clients</p>
-                    <p class="text-3xl font-bold">340+</p>
-                </div>
+                <p class="text-xs text-gray-400 mt-2">Data as of March 2026</p>
+            </div>
+            <div class="hidden md:block h-32 bg-white border border-gray-300 flex items-center justify-center italic text-gray-300">
+                [ Interactive Chart Placeholder ]
             </div>
         </div>
     </section>
 
-    <section id="philosophy" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                <h2 class="text-4xl font-bold">Our Investment Pillars</h2>
-                <a href="mailto:info@solander898.com" class="text-gs-red font-bold border-b-2 border-gs-red pb-1 hover:text-black hover:border-black transition-all">Download Full Strategy PDF</a>
-            </div>
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <div class="flex flex-col md:flex-row gap-12">
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="p-8 bg-gs-gray border border-gs-border">
-                    <span class="text-gs-red font-mono font-bold text-lg">01</span>
-                    <h3 class="text-xl font-bold my-4">Calidad y durabilidad del negocio</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Priorizamos empresas con altos retornos sobre el capital y modelos de negocio con ventajas competitivas sostenibles en el tiempo.</p>
-                </div>
-                <div class="p-8 bg-gs-gray border border-gs-border">
-                    <span class="text-gs-red font-mono font-bold text-lg">02</span>
-                    <h3 class="text-xl font-bold my-4">Construcción y gestión de la cartera</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Carteras concentradas en las ideas de mayor convicción, con posiciones dimensionadas en función del análisis fundamental y el margen de seguridad.</p>
-                </div>
-                <div class="p-8 bg-gs-gray border border-gs-border">
-                    <span class="text-gs-red font-mono font-bold text-lg">03</span>
-                    <h3 class="text-xl font-bold my-4">Valoración independiente</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Compramos cuando el precio ofrece un margen de seguridad suficiente o cuando el mercado está malpreciando los riesgos de un activo.</p>
-                </div>
-                <div class="p-8 bg-gs-gray border border-gs-border">
-                    <span class="text-gs-red font-mono font-bold text-lg">04</span>
-                    <h3 class="text-xl font-bold my-4">Gestión conservadora</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">Evitamos riesgos innecesarios y no perseguimos retornos rápidos. Disciplina y paciencia como ventaja competitiva.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="flex-1">
+                <h3 class="section-title text-black">Company Overview</h3>
+                <p class="mb-6 leading-relaxed text-sm">
+                    Solander 898 operates with a focus on value preservation and long-term capital growth. Inspired by the meticulous classification systems of Daniel Carl Solander, we apply a scientific approach to asset management.
+                </p>
 
-    <section id="disclosures" class="py-20 border-t border-gs-border bg-gs-gray">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-2xl font-bold mb-10 text-gs-dark uppercase tracking-tighter">Full Disclosures</h2>
-            <div class="space-y-6 text-xs text-gray-500 font-mono leading-relaxed uppercase">
-                <p>Solander 898 is a trade name of 898 Farnam St, LLC (the “Firm”).</p>
-                <p>898 Farnam St, LLC is currently in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission. Registration has not yet been granted. Registration does not imply a certain level of skill or training.</p>
-                <p>The information provided is believed to be derived from sources considered reliable; however, its accuracy and completeness are not guaranteed. Content is subject to change without notice.</p>
-                <p>Past performance is not indicative of future results. Prospective clients should consult their legal, tax, and financial advisors before making any investment decisions.</p>
-                <div class="pt-6 border-t border-gs-border text-gs-dark font-bold">
-                    UPDATED: MARCH 2026
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gs-dark text-white py-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 border-b border-gray-800 pb-12">
+                <h3 class="section-title text-black mt-10">Recent News</h3>
                 <div class="space-y-4">
-                    <span class="font-bold tracking-tighter text-xl">SOLANDER 898</span>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-widest leading-loose">
-                        Daniel Carl Solander, Swedish botanist and explorer, creator of the system used to preserve works of art in museums.
-                    </p>
+                    <div class="table-row">
+                        <span class="text-xs text-gray-500 block">Mar 15, 2026</span>
+                        <a href="#" class="font-bold text-sm">Solander 898 Announces Fourth Quarter and Fiscal Year 2025 Results</a>
+                    </div>
+                    <div class="table-row">
+                        <span class="text-xs text-gray-500 block">Feb 28, 2026</span>
+                        <a href="#" class="font-bold text-sm">Update on Strategic Botanical Asset Allocation for Q1</a>
+                    </div>
+                    <div class="table-row border-none">
+                        <a href="#" class="text-xs font-bold underline">View All News &gt;</a>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xs font-bold mb-4 uppercase tracking-widest text-gs-red">Quick Links</h4>
-                    <ul class="text-[10px] space-y-2 uppercase tracking-widest text-gray-400 font-mono">
-                        <li><a href="#overview" class="hover:text-white">Overview</a></li>
-                        <li><a href="#philosophy" class="hover:text-white">Philosophy</a></li>
-                        <li><a href="#disclosures" class="hover:text-white">Legal Disclosures</a></li>
+            </div>
+
+            <div class="w-full md:w-80">
+                <div class="sidebar-box">
+                    <h4 class="font-bold text-xs uppercase mb-3 border-b border-gray-200 pb-2">Investor Resources</h4>
+                    <ul class="text-sm space-y-3">
+                        <li><a href="#">Annual Reports</a></li>
+                        <li><a href="#">SEC Filings</a></li>
+                        <li><a href="#">Quarterly Earnings</a></li>
+                        <li><a href="#">Governance Documents</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-xs font-bold mb-4 uppercase tracking-widest text-gs-red">Contact</h4>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-mono">info@solander898.com</p>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-mono mt-2">898 Farnam St, LLC.</p>
+
+                <div class="sidebar-box bg-gray-50">
+                    <h4 class="font-bold text-xs uppercase mb-3">Investor Contacts</h4>
+                    <p class="text-xs leading-relaxed">
+                        <strong>Solander 898 IR</strong><br>
+                        898 Farnam St, LLC<br>
+                        <a href="mailto:info@solander898.com">info@solander898.com</a>
+                    </p>
                 </div>
             </div>
-            <div class="pt-8 flex flex-col md:flex-row justify-between text-[9px] text-gray-500 font-mono uppercase tracking-[0.2em]">
-                <span>© 2026 898 Farnam St, LLC. All rights reserved.</span>
-                <span>Version 2.0 (Investor Relations Aesthetic)</span>
+
+        </div>
+    </main>
+
+    <footer class="bg-black text-white py-10 mt-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div class="max-w-xs">
+                    <h2 class="font-bold text-lg mb-4">SOLANDER 898</h2>
+                    <p class="text-[9px] text-gray-400 uppercase tracking-widest leading-loose">
+                        898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. SEC.
+                    </p>
+                </div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-500 space-y-2">
+                    <p>© 2026 898 Farnam St, LLC. All rights reserved.</p>
+                    <p><a href="#" class="text-gray-500">Privacy Policy</a> | <a href="#" class="text-gray-500">Terms of Use</a></p>
+                </div>
             </div>
         </div>
     </footer>
 
 </body>
 </html>
-  
