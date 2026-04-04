@@ -6,152 +6,326 @@
     <title>Solander 898</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* RESET Y TIPOGRAFÍA BASE (Arial es mandatorio para esta estética) */
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #333;
-            background-color: #fff;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            font-size: 13px; /* Tamaño exacto de los portales IR */
+            line-height: 1.5;
         }
-        /* Estilo exacto de enlaces de GameStop */
-        a {
-            color: #0056b3;
-            text-decoration: none;
+
+        /* COLORES Y ENLACES */
+        a { color: #0056b3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* CONTENEDOR DE ANCHO FIJO (GameStop usa 980px aprox) */
+        .ir-container {
+            width: 980px;
+            margin: 0 auto;
+            position: relative;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        .top-nav-bg {
+
+        /* 1. TOP UTILITY BAR (Gris claro) */
+        .top-bar {
             background-color: #f2f2f2;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #d9d9d9;
+            height: 30px;
+            display: flex;
+            align-items: center;
         }
-        .main-header {
-            border-bottom: 4px solid #333;
-        }
-        .section-title {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            font-weight: bold;
+        .top-bar-links {
+            font-size: 11px;
             text-transform: uppercase;
-            font-size: 1.25rem;
+            color: #666;
         }
-        .sidebar-box {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .stock-price {
-            font-size: 2.5rem;
-            font-weight: bold;
+
+        /* 2. HEADER AREA */
+        header { padding: 30px 0; }
+        .logo-text {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
             color: #000;
         }
-        .table-row {
-            border-bottom: 1px solid #eee;
-            padding: 8px 0;
+        .search-box input {
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            font-size: 12px;
+            width: 180px;
         }
+        .search-box button {
+            background-color: #333;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 3. MAIN NAVIGATION (Negro sólido) */
+        .main-nav {
+            background-color: #000000;
+            height: 40px;
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .main-nav li {
+            height: 100%;
+            border-right: 1px solid #333;
+        }
+        .main-nav a {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        .main-nav a:hover { background-color: #333; text-decoration: none; }
+
+        /* 4. LAYOUT DE 3 COLUMNAS */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 200px 1fr 220px;
+            gap: 30px;
+            padding: 30px 0;
+        }
+
+        /* COLUMNA IZQUIERDA: Menú Vertical */
+        .left-nav h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .left-nav ul { list-style: none; padding: 0; border-top: 1px solid #eee; }
+        .left-nav li { border-bottom: 1px solid #eee; }
+        .left-nav li a {
+            display: block;
+            padding: 10px 0;
+            color: #333;
+            font-weight: bold;
+        }
+        .left-nav li a:hover { color: #0056b3; }
+
+        /* COLUMNA CENTRAL: Contenido */
+        .page-title {
+            font-size: 24px;
+            font-weight: normal;
+            color: #000;
+            border-bottom: 3px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+        .press-release-item {
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            display: flex;
+            gap: 20px;
+        }
+        .date-label { color: #999; font-size: 11px; width: 80px; flex-shrink: 0; }
+
+        /* COLUMNA DERECHA: Widgets */
+        .widget { border: 1px solid #d9d9d9; margin-bottom: 20px; }
+        .widget-header {
+            background-color: #f2f2f2;
+            padding: 8px 12px;
+            border-bottom: 1px solid #d9d9d9;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        .widget-body { padding: 15px; }
+
+        /* 5. FOOTER (Gris con borde superior grueso) */
+        footer {
+            background-color: #f2f2f2;
+            border-top: 6px solid #000;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: #666;
+            font-size: 11px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-grid h4 { color: #000; font-weight: bold; margin-bottom: 15px; }
+        .footer-grid ul { list-style: none; padding: 0; }
+        .footer-grid li { margin-bottom: 8px; }
+        .legal-notice { border-top: 1px solid #d9d9d9; pt-20; margin-top: 20px; padding-top: 20px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <div class="top-nav-bg py-2">
-        <div class="max-w-6xl mx-auto px-4 flex justify-end gap-6 text-xs uppercase tracking-tighter text-gray-600">
-            <a href="#" class="text-gray-600">Contact</a>
-            <a href="#" class="text-gray-600">Email Alerts</a>
-            <a href="#" class="text-gray-600">RSS Feeds</a>
+    <div class="top-bar">
+        <div class="ir-container flex justify-end gap-5 top-bar-links">
+            <a href="#">Contact Us</a>
+            <span>|</span>
+            <a href="#">Email Alerts</a>
+            <span>|</span>
+            <a href="#">RSS Feeds</a>
         </div>
     </div>
 
-    <header class="main-header py-6">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-end">
-            <div>
-                <h1 class="text-3xl font-black tracking-tighter">SOLANDER <span class="text-gray-500">898</span></h1>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-1">Investor Relations</p>
+    <header>
+        <div class="ir-container flex justify-between items-center">
+            <div class="logo-text">SOLANDER <span style="font-weight: 200; color: #666;">898</span></div>
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+                <button>GO</button>
             </div>
-            <nav class="flex gap-8 text-sm font-bold uppercase">
-                <a href="#" class="text-black hover:no-underline">Overview</a>
-                <a href="#" class="text-black hover:no-underline">News</a>
-                <a href="#" class="text-black hover:no-underline">Filings</a>
-                <a href="#" class="text-black hover:no-underline">Governance</a>
-            </nav>
         </div>
     </header>
 
-    <section class="bg-gray-50 border-b border-gray-200 py-10">
-        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 items-center">
-            <div>
-                <h2 class="text-sm font-bold uppercase text-gray-500 mb-2">Solander 898 Common Stock</h2>
-                <div class="flex items-baseline gap-4">
-                    <span class="stock-price">$42.00</span>
-                    <span class="text-green-600 font-bold">+1.25 (3.06%)</span>
-                </div>
-                <p class="text-xs text-gray-400 mt-2">Data as of March 2026</p>
-            </div>
-            <div class="hidden md:block h-32 bg-white border border-gray-300 flex items-center justify-center italic text-gray-300">
-                [ Interactive Chart Placeholder ]
-            </div>
+    <nav class="main-nav">
+        <div class="ir-container">
+            <ul>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">SEC Filings</a></li>
+                <li><a href="#">Governance</a></li>
+                <li><a href="#">Stock Information</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-12">
-        <div class="flex flex-col md:flex-row gap-12">
+    <div class="ir-container">
+        <div class="content-wrapper">
             
-            <div class="flex-1">
-                <h3 class="section-title text-black">Company Overview</h3>
-                <p class="mb-6 leading-relaxed text-sm">
-                    Solander 898 operates with a focus on value preservation and long-term capital growth. Inspired by the meticulous classification systems of Daniel Carl Solander, we apply a scientific approach to asset management.
+            <aside class="left-nav">
+                <h3>Investor Relations</h3>
+                <ul>
+                    <li><a href="#">IR Home</a></li>
+                    <li><a href="#">Company Profile</a></li>
+                    <li><a href="#">Management Team</a></li>
+                    <li><a href="#">Board of Directors</a></li>
+                    <li><a href="#">Corporate Responsibility</a></li>
+                </ul>
+            </aside>
+
+            <main>
+                <h1 class="page-title">Overview</h1>
+                
+                <p style="font-size: 15px; color: #555; margin-bottom: 30px; line-height: 1.6;">
+                    Solander 898 is an investment management firm dedicated to the systematic classification and long-term preservation of capital. We apply a rigorous, discipline-based approach to identify assets with sustainable competitive advantages.
                 </p>
 
-                <h3 class="section-title text-black mt-10">Recent News</h3>
-                <div class="space-y-4">
-                    <div class="table-row">
-                        <span class="text-xs text-gray-500 block">Mar 15, 2026</span>
-                        <a href="#" class="font-bold text-sm">Solander 898 Announces Fourth Quarter and Fiscal Year 2025 Results</a>
-                    </div>
-                    <div class="table-row">
-                        <span class="text-xs text-gray-500 block">Feb 28, 2026</span>
-                        <a href="#" class="font-bold text-sm">Update on Strategic Botanical Asset Allocation for Q1</a>
-                    </div>
-                    <div class="table-row border-none">
-                        <a href="#" class="text-xs font-bold underline">View All News &gt;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-full md:w-80">
-                <div class="sidebar-box">
-                    <h4 class="font-bold text-xs uppercase mb-3 border-b border-gray-200 pb-2">Investor Resources</h4>
-                    <ul class="text-sm space-y-3">
-                        <li><a href="#">Annual Reports</a></li>
-                        <li><a href="#">SEC Filings</a></li>
-                        <li><a href="#">Quarterly Earnings</a></li>
-                        <li><a href="#">Governance Documents</a></li>
-                    </ul>
+                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #eee; margin-bottom: 30px;">
+                    <h3 style="font-weight: bold; margin-bottom: 10px; color: #000;">Investment Philosophy</h3>
+                    <p>Focusing on business quality, conservative management, and an independent valuation framework to ensure a significant margin of safety.</p>
                 </div>
 
-                <div class="sidebar-box bg-gray-50">
-                    <h4 class="font-bold text-xs uppercase mb-3">Investor Contacts</h4>
-                    <p class="text-xs leading-relaxed">
-                        <strong>Solander 898 IR</strong><br>
-                        898 Farnam St, LLC<br>
-                        <a href="mailto:info@solander898.com">info@solander898.com</a>
-                    </p>
+                <h3 style="font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-bottom: 15px; text-transform: uppercase; font-size: 12px;">Recent News</h3>
+                
+                <div class="press-release-item">
+                    <span class="date-label">Mar 24, 2026</span>
+                    <a href="#" class="font-bold">Solander 898 Announces Fourth Quarter and Fiscal Year 2025 Results</a>
                 </div>
-            </div>
+                <div class="press-release-item">
+                    <span class="date-label">Feb 12, 2026</span>
+                    <a href="#" class="font-bold">Solander 898 to Report Fourth Quarter and Fiscal Year 2025 Earnings on March 24, 2026</a>
+                </div>
+                <div class="press-release-item">
+                    <span class="date-label">Jan 15, 2026</span>
+                    <a href="#" class="font-bold">Quarterly Botanical Asset Reclassification Update</a>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <a href="#" style="font-weight: bold; font-size: 11px;">View All News &gt;</a>
+                </div>
+            </main>
+
+            <aside>
+                <div class="widget">
+                    <div class="widget-header">Stock Information</div>
+                    <div class="widget-body">
+                        <div style="font-size: 28px; font-weight: bold; color: #000;">$42.00</div>
+                        <div style="color: #008000; font-weight: bold; font-size: 12px;">+1.25 (3.06%)</div>
+                        <div style="font-size: 10px; color: #999; margin-top: 5px; text-transform: uppercase;">Real-Time Quote</div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">Investor Kit</div>
+                    <div class="widget-body">
+                        <ul style="list-style: none; padding: 0; font-size: 12px;">
+                            <li style="margin-bottom: 10px;"><a href="#" style="font-weight: bold;">2025 Annual Report (PDF)</a></li>
+                            <li style="margin-bottom: 10px;"><a href="#" style="font-weight: bold;">SEC Filings (All)</a></li>
+                            <li><a href="#" style="font-weight: bold;">Investor Presentation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">IR Contact</div>
+                    <div class="widget-body">
+                        <p style="font-weight: bold; margin-bottom: 5px;">Solander 898 IR</p>
+                        <p>898 Farnam St, LLC</p>
+                        <p><a href="mailto:info@solander898.com">info@solander898.com</a></p>
+                    </div>
+                </div>
+            </aside>
 
         </div>
-    </main>
+    </div>
 
-    <footer class="bg-black text-white py-10 mt-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
-                <div class="max-w-xs">
-                    <h2 class="font-bold text-lg mb-4">SOLANDER 898</h2>
-                    <p class="text-[9px] text-gray-400 uppercase tracking-widest leading-loose">
-                        898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. SEC.
-                    </p>
+    <footer>
+        <div class="ir-container">
+            <div class="footer-grid">
+                <div>
+                    <h4>News & Events</h4>
+                    <ul>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Events Calendar</a></li>
+                        <li><a href="#">Presentations</a></li>
+                    </ul>
                 </div>
-                <div class="text-[10px] uppercase tracking-widest text-gray-500 space-y-2">
-                    <p>© 2026 898 Farnam St, LLC. All rights reserved.</p>
-                    <p><a href="#" class="text-gray-500">Privacy Policy</a> | <a href="#" class="text-gray-500">Terms of Use</a></p>
+                <div>
+                    <h4>Financials</h4>
+                    <ul>
+                        <li><a href="#">Quarterly Earnings</a></li>
+                        <li><a href="#">Annual Reports</a></li>
+                        <li><a href="#">SEC Filings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Governance</h4>
+                    <ul>
+                        <li><a href="#">Board of Directors</a></li>
+                        <li><a href="#">Committee Composition</a></li>
+                        <li><a href="#">Governance Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Shareholder Tools</h4>
+                    <ul>
+                        <li><a href="#">Email Alerts</a></li>
+                        <li><a href="#">Investment Calculator</a></li>
+                        <li><a href="#">Download Library</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legal-notice">
+                <p style="margin-bottom: 10px;">&copy; 2026 898 Farnam St, LLC. All rights reserved. Solander 898 is a trade name of 898 Farnam St, LLC.</p>
+                <p>
+                    898 Farnam St, LLC is currently in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission. Registration has not yet been granted. The information provided is for informational purposes only and does not constitute investment, legal, or tax advice. Registration does not imply a certain level of skill or training.
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="#" style="color: #666;">Privacy Policy</a> | <a href="#" style="color: #666;">Terms of Use</a> | <a href="#" style="color: #666;">Site Map</a>
                 </div>
             </div>
         </div>
