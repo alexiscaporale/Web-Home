@@ -1,0 +1,300 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solander 898 - Full Disclosures</title>
+    <style>
+        /* Estilos base para replicar la captura de pantalla de GameStop Corp */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* Menú de Idioma arriba a la derecha */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .language-switcher span {
+            cursor: pointer;
+            padding: 0 5px;
+            color: #999;
+        }
+
+        .language-switcher span.active {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        /* --- Estilos del Nuevo Encabezado con Logo --- */
+        .header-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px; /* Espacio entre el logo y el texto */
+            margin-bottom: 5px;
+        }
+
+        /* Recreando la imagen botánica en CSS con fondo transparente */
+        .botanical-logo {
+            width: 70px; /* Tamaño del logo */
+            height: 70px;
+            background-image: url('solanderlogofondoblanco.png'); /* Ruta a tu imagen */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0; /* Quitamos márgenes para alinearlo bien */
+            font-weight: bold;
+        }
+        /* --------------------------------------------- */
+
+        .address {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            padding-left: 15px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e0e0e0;
+            margin: 25px 0;
+            width: 100%;
+        }
+
+        /* Rejilla de enlaces */
+        .links-grid {
+            font-size: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        a {
+            color: #0000FF; /* Azul estándar de hipervínculo */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .link-disclaimer {
+            color: #0000FF; /* Azul estándar de hipervínculo */
+            text-decoration: none;
+            font-size: 8px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección de texto informativo */
+        .info-section {
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+          .disclaimer {
+            text-align: left;
+            font-size: 8px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .philosophy {
+            text-align: left;
+            font-size: 15px;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        /* Adaptación para móviles */
+        @media (max-width: 600px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .header-logo-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        /* Control de visibilidad de idiomas */
+/* --- Lógica de Idiomas Corregida --- */
+
+/* Por defecto, el español está oculto */
+[lang="es"] { 
+    display: none !important; 
+}
+
+/* El inglés se muestra por defecto */
+[lang="en"] { 
+    display: inline-block; 
+}
+
+/* Ajuste para párrafos en inglés */
+p[lang="en"], div[lang="en"] {
+    display: block;
+}
+
+/* CUANDO SE ACTIVA EL ESPAÑOL: */
+body.lang-es [lang="en"] { 
+    display: none !important; 
+}
+
+body.lang-es [lang="es"] { 
+    display: inline-block !important; 
+}
+
+body.lang-es p[lang="es"], body.lang-es div[lang="es"] {
+    display: block !important;
+}
+
+        @media print {
+            .language-switcher { display: none; }
+            .container { margin-top: 20px; }
+            a { color: #0000FF !important; }
+        }
+
+        @media (max-width: 600px) {
+            .language-switcher { right: 20px; top: 10px; }
+            .links-grid { grid-template-columns: 1fr; text-align: center; }
+            .address { padding-left: 0; }
+        }
+    </style>
+</head>
+<body class="lang-en">
+<div class="language-switcher no-print">
+        <span id="btn-en" class="active" onclick="setLanguage('en')">ENG</span>
+        <span style="color: #ccc;">/</span>
+        <span id="btn-es" onclick="setLanguage('es')">ES</span>
+    </div>
+    <div class="container">
+        <div class="header-logo-container">
+            <div class="botanical-logo" title="Daniel Carl Solander Botanical Engraving"></div>
+            <h1>SOLANDER 898</h1>
+        </div>
+
+        <div class="address">
+           <span lang="en">Legacy preservation through value construction</span>
+           <span lang="es">Preservación de patrimonio, construcción de valor</span>
+        </div>
+
+        <hr>
+
+    <div class="info-title">
+        <p><span lang="en">Full Disclosures</span>
+<span lang="es">Full Disclosures</span>
+        </p>
+    </div>
+        <div class="info-section">
+            <p>
+                <span lang="en">Solander 898 is a trade name of 898 Farnam St, LLC (the “Firm”).</span>
+                <span lang="es">Solander 898 es el nombre comercial de 898 Farnam St, LLC (la “Firma”).</span>
+            </p>
+            <p>
+                <span lang="en">898 Farnam St, LLC is currently in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission. Registration has not yet been granted, and the Firm is not currently registered as an investment adviser. Registration does not imply a certain level of skill or training. The information provided on this website is for informational purposes only and is believed to be derived from sources considered reliable; however, its accuracy and completeness are not guaranteed. The content is subject to change without notice. This material does not constitute investment, legal, or tax advice, nor is it an offer to sell or a solicitation of an offer to buy any securities or investment advisory services. The Firm does not provide investment advisory services to any person in any jurisdiction in which it is not authorized to do so. Certain materials, including white papers and investor letters, may reflect the views and opinions of the Firm at a point in time and are subject to change. Such materials may include forward-looking statements that are inherently uncertain. Past performance is not indicative of future results. Any performance information presented, including hypothetical or model performance, has inherent limitations and may not reflect actual trading results. Prospective clients should consult their legal, tax, and financial advisors before making any investment decisions.</span>
+                <span lang="es">898 Farnam St, LLC se encuentra actualmente en proceso de solicitud de registro como asesor de inversiones ante la Comisión de Bolsa y Valores de los Estados Unidos (SEC). El registro aún no ha sido otorgado y la Firma no está registrada como asesora de inversiones. El registro no implica un determinado nivel de habilidad o capacitación. La información proporcionada en este sitio web tiene fines meramente informativos y se considera que proviene de fuentes confiables; sin embargo, no se garantiza su exactitud ni su integridad. El contenido está sujeto a cambios sin previo aviso.Este material no constituye asesoramiento de inversión, legal ni fiscal, ni una oferta de venta ni una solicitud de oferta de compra de valores o servicios de asesoramiento de inversiones. La Firma no presta servicios de asesoramiento de inversiones a ninguna persona en ninguna jurisdicción en la que no esté autorizada para hacerlo. Ciertos materiales, incluidos los informes técnicos y las cartas a los inversores, pueden reflejar las opiniones de la Firma en un momento dado y están sujetos a cambios. Dichos materiales pueden incluir declaraciones prospectivas que son inherentemente inciertas. El rendimiento pasado no es indicativo de resultados futuros. Cualquier información sobre el rendimiento presentada, incluyendo el rendimiento hipotético o el de modelos, tiene limitaciones inherentes y puede no reflejar los resultados reales de las operaciones. Los clientes potenciales deben consultar con sus asesores legales, fiscales y financieros antes de tomar cualquier decisión de inversión.</span>
+            </p>
+        </div>
+
+         <hr>
+         <div class="info-title">
+        <p><span lang="en">Philosophy</span><span lang="es">Filosofía</span></p>
+    </div>
+        <div class="philosophy">
+         <p><span lang="en">Our investment discipline is grounded in rigorous analysis, independent conviction, and a long-term horizon.</span></p>
+            <p><span lang="es">Disciplina de inversión fundamentada en el análisis riguroso, la convicción independiente y el horizonte de largo plazo.</span>
+            </p></div>
+        <div class="links-grid">
+            
+            <div class="column">
+                <p><span lang="en">The quality of the underlying business is the starting point of every investment decision. We prioritize companies with high returns on capital and competitive advantages that are sustainable over time.</span>
+                <span lang="es">La calidad del activo subyacente es el punto de partida de cualquier decisión de inversión. Priorizamos empresas con altos retornos sobre el capital y modelos de negocio con ventajas competitivas sostenibles en el tiempo.</span>
+            </div>
+            <div class="column">
+                <p><span lang="en">We build concentrated portfolios around our highest-conviction ideas, with positions sized according to fundamental analysis and the margin of safety of each investment. Diversification is not an end in itself, but the natural outcome of a disciplined selection process.</span>
+                   <span lang="es">Construimos carteras concentradas en las ideas de mayor convicción, con posiciones dimensionadas en función del análisis fundamental y el margen de seguridad de cada inversión. La diversificación no es un objetivo en sí mismo, sino la consecuencia natural de un proceso de selección disciplinado.</span> 
+                </p>
+            </div>
+            <div class="column">
+                <p><span lang="en">We avoid unnecessary risks and do not pursue short-term returns. We seek to build lasting relationships with clients and managers who share our long-term perspective, convinced that discipline and patience are, in themselves, a competitive advantage.</span>
+                <span lang="es">No perseguimos retornos rápidos. Buscamos construir relaciones duraderas con clientes y managers que comparten nuestra visión de largo plazo, convencidos de que la disciplina y la paciencia son, en sí mismas, una ventaja competitiva.</span></p>
+            </div>
+        </div>
+
+        <hr>
+<div class="info-title" style="font-style: italic; color: #555;">
+        <p><span lang="en">Disclosures</span>
+<span lang="es">Disclosures</span>
+        </p>
+    </div>
+        <div class="disclaimer" style="font-style: italic; color: #555;">
+            <span lang="en">Solander 898 is a trade name of 898 Farnam St, LLC. 898 Farnam St, LLC is in the process of applying for registration as an investment adviser with the U.S. Securities and Exchange Commission and currently provides services only to non-U.S. clients in jurisdictions where it is permitted to do so. Registration does not imply a certain level of skill or training. The information provided is for informational purposes only and does not constitute investment, legal, or tax advice or an offer to buy or sell securities or investment advisory services. Past performance is not indicative of future results. See <a class="link-disclaimer" href="/disclosures">full disclosures</a>.</span>
+            <span lang="es">Solander 898 es una marca comercial de 898 Farnam St, LLC. 898 Farnam St, LLC está tramitando su registro como asesor de inversiones ante la Comisión de Bolsa y Valores de EE. UU. (SEC) y actualmente presta servicios únicamente a clientes no estadounidenses en las jurisdicciones donde está autorizado a hacerlo. El registro no implica un determinado nivel de habilidad o formación. La información proporcionada tiene fines meramente informativos y no constituye asesoramiento en materia de inversiones, legal o fiscal, ni una oferta para comprar o vender valores o servicios de asesoramiento de inversiones. El rendimiento pasado no garantiza resultados futuros. Consulte la <a class="link-disclaimer" href="/disclosures">información completa</a>.</span>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+        <span lang="en">   Copyright © 2026 898 Farnam St, LLC.<br>
+            <a href="mailto:info@solander898.com">Contact Us</a> | <a href="/disclosures">Full Disclosures</a>
+        </span> 
+        <span lang="es">   Copyright © 2026 898 Farnam St, LLC.<br>
+            <a href="mailto:info@solander898.com">Contacto</a> | <a href="/disclosures">Full Disclosures</a>
+        </span> 
+        </div>
+    </div>
+<script>
+    function setLanguage(lang) {
+        // 1. Quitamos las clases de idioma activas del body
+        document.body.classList.remove('lang-en', 'lang-es');
+        
+        // 2. Añadimos la clase del idioma seleccionado
+        document.body.classList.add('lang-' + lang);
+
+        // 3. Actualizamos visualmente los botones del menú
+        document.getElementById('btn-en').classList.remove('active');
+        document.getElementById('btn-es').classList.remove('active');
+        document.getElementById('btn-' + lang).classList.add('active');
+    }
+</script>
+</body>
+</html>
