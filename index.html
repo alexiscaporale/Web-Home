@@ -1,229 +1,730 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solander 898</title>
     <style>
+        /* ─── Reset & Base ─── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --text:    #1a1a1a;
+            --muted:   #6b6b6b;
+            --rule:    #d0d0d0;
+            --bg:      #fafaf8;
+            --accent:  #2c2c2c;
+            --font:    'Menlo', 'SF Mono', 'Consolas', 'Monaco', monospace;
+        }
+
+        html { font-size: 17px; }
+
         body {
-            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-            background-color: #ffffff;
-            color: #000000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
         }
-        /* Menú de Idioma arriba a la derecha */
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            font-size: 14px;
-            font-weight: bold;
+
+        /* ─── Layout ─── */
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 48px 60px;
         }
-        .language-switcher span {
+
+        /* ─── Language Switcher ─── */
+        .lang-switch {
+            position: fixed;
+            top: 24px;
+            right: 32px;
+            font-family: var(--font);
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            z-index: 100;
+        }
+        .lang-switch button {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
+            text-transform: inherit;
             cursor: pointer;
-            padding: 0 5px;
-            color: #999;
+            color: var(--muted);
+            padding: 2px 4px;
+            transition: color 0.2s;
         }
+        .lang-switch button.active { color: var(--text); }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch .sep { color: var(--rule); margin: 0 2px; }
 
-        .language-switcher span.active {
-            color: #000;
-            text-decoration: underline;
+        /* ─── Header ─── */
+        .header {
+            text-align: center;
+            margin-bottom: 0;
         }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin-top: 50px;
-            padding: 20px;
-        }
-
-        /* --- Estilos del Nuevo Encabezado con Logo --- */
-        .header-logo-container {
+        .header-brand {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px; /* Espacio entre el logo y el texto */
-            margin-bottom: 5px;
+            gap: 14px;
+            margin-bottom: 10px;
         }
-
-        /* Recreando la imagen botánica en CSS con fondo transparente */
-        .botanical-logo {
-            width: 70px; /* Tamaño del logo */
-            height: 70px;
-            background-image: url('solanderlogofondoblanco.png'); /* Ruta a tu imagen */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
         }
-
-        h1 {
-            font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0; /* Quitamos márgenes para alinearlo bien */
-            font-weight: bold;
-        }
-        /* --------------------------------------------- */
-
-        .address {
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.4;
-            padding-left: 15px;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #e0e0e0;
-            margin: 25px 0;
+        .header-logo img {
             width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+        .header h1 {
+            font-family: var(--font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .header .tagline {
+            font-size: 0.78rem;
+            font-style: italic;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+        .header .sub-hero {
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            color: var(--muted);
         }
 
-        /* Rejilla de enlaces */
-        .links-grid {
-            font-size: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            text-align: left;
+        /* ─── Horizontal Rules ─── */
+        hr {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin: 48px 0;
         }
 
-        a {
-            color: #0000FF; /* Azul estándar de hipervínculo */
+        /* ─── Section Titles ─── */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #3a3a3a;
+            margin-bottom: 28px;
+        }
+
+        /* ─── Body Text ─── */
+        .prose {
+            font-size: 0.92rem;
+            line-height: 1.9;
+        }
+        .prose p {
+            margin-bottom: 1.2em;
+        }
+        .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ─── Pull Quote ─── */
+        .pull-quote {
+            font-size: 0.92rem;
+            font-style: italic;
+            color: var(--accent);
+            margin: 36px auto 0;
+            line-height: 1.9;
+            max-width: 90%;
+            border-top: 1px solid var(--rule);
+            padding: 24px 0 0;
+        }
+
+        /* ─── Philosophy Items ─── */
+        .philosophy-item {
+            margin-bottom: 32px;
+        }
+        .philosophy-item:last-child {
+            margin-bottom: 0;
+        }
+        .philosophy-item h3 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .philosophy-item p {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.85;
+        }
+
+        /* ─── Investment Universe (3 buckets) ─── */
+        .universe {
+            margin-top: 0;
+        }
+        .bucket {
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+        .bucket:last-child {
+            margin-bottom: 0;
+        }
+        .bucket-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .bucket-num {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+        .bucket-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        .bucket-desc {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.82rem;
+        }
+
+        /* ─── Process Items ─── */
+        .process-item {
+            margin-bottom: 24px;
+        }
+        .process-item:last-child {
+            margin-bottom: 0;
+        }
+        .process-item p {
+            font-size: 0.85rem;
+            line-height: 1.85;
+        }
+
+        /* ─── Investment Approach Table ─── */
+        .approach-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        .approach-table tr {
+            border-bottom: 1px solid var(--rule);
+        }
+        .approach-table tr:last-child {
+            border-bottom: none;
+        }
+        .approach-table td {
+            padding: 10px 0;
+            vertical-align: top;
+        }
+        .approach-table td:first-child {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            width: 140px;
+            padding-right: 20px;
+        }
+        .approach-table td:last-child {
+            color: var(--text);
+        }
+
+        /* ─── Survival Horizon ─── */
+        .horizon {
+            padding: 12px 0;
+        }
+        .horizon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+        .horizon-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #3a3a3a;
+        }
+        .horizon-dates {
+            font-size: 0.78rem;
+            color: var(--text);
+            letter-spacing: 0.04em;
+        }
+        .horizon-progress {
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+        .horizon-blocks {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 8px;
+        }
+        .horizon-block {
+            flex: 1;
+            height: 6px;
+            background: var(--rule);
+        }
+        .horizon-block.filled {
+            background: var(--text);
+        }
+        .horizon-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .horizon-note {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-style: italic;
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── Contact / Alignment Section ─── */
+        .contact {
+            text-align: center;
+            padding: 8px 0;
+        }
+        .contact p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.85;
+        }
+        .contact a {
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            color: var(--text);
             text-decoration: none;
-            font-size: 14px;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+        .contact a:hover {
+            border-color: var(--text);
         }
 
-        .link-disclaimer {
-            color: #0000FF; /* Azul estándar de hipervínculo */
-            text-decoration: none;
-            font-size: 8px;
+        /* ─── Solander Reference ─── */
+        .solander-ref {
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--muted);
+            font-style: italic;
+            line-height: 1.8;
+            margin-top: 8px;
         }
 
-        a:hover {
+        /* ─── Disclosures ─── */
+        .disclosures {
+            font-size: 0.64rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+        }
+        .disclosures a {
+            color: var(--muted);
             text-decoration: underline;
+            text-decoration-color: var(--rule);
         }
+        .disclosures a:hover { color: var(--text); }
 
-        /* Sección de texto informativo */
-        .info-section {
-            text-align: left;
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 30px;
+        .footer-line {
+            font-size: 0.64rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 32px;
+            letter-spacing: 0.04em;
         }
-          .disclaimer {
-            text-align: left;
-            font-size: 8px;
-            line-height: 1.5;
-            margin-bottom: 30px;
+        .footer-line a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule);
         }
-        .philosophy {
-            text-align: left;
-            font-size: 15px;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
+        .footer-line a:hover { color: var(--text); }
 
-        .info-title {
-            font-weight: bold;
-            text-align: left;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .info-title-disclaimer {
-            font-size: 12px;
-            font-weight: bold;
-            text-align: left;
-            display: block;
-            margin-bottom: 10px;
-}
-        .footer {
-            font-size: 14px;
-            margin-top: 40px;
-            margin-bottom: 60px;
-            color: #333;
-        }
+        /* ─── Language Toggle Logic ─── */
+        [lang="es"] { display: none; }
+        body.lang-es [lang="en"] { display: none !important; }
+        body.lang-es [lang="es"] { display: block !important; }
+        body.lang-es span[lang="es"] { display: inline !important; }
 
-        /* Adaptación para móviles */
-        @media (max-width: 600px) {
-            .links-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
+        /* ─── Responsive ─── */
+        @media (max-width: 640px) {
+            html { font-size: 14px; }
+            .page { padding: 60px 20px 40px; }
+            .header { margin-bottom: 48px; }
+            .header-brand { gap: 10px; }
+            .header-logo { width: 44px; height: 44px; }
+            .header h1 { font-size: 1.3rem; letter-spacing: 0.2em; }
+            hr { margin: 36px 0; }
+            .bucket {
+                margin-bottom: 20px;
             }
-            .header-logo-container {
-                flex-direction: column;
-                gap: 5px;
+            .approach-table td:first-child {
+                width: 100px;
+                padding-right: 12px;
+            }
+            .lang-switch {
+                position: relative;
+                top: 0;
+                right: 0;
+                text-align: right;
+                margin-bottom: 16px;
             }
         }
-        /* Control de visibilidad de idiomas */
-/* --- Lógica de Idiomas Corregida --- */
 
-/* Por defecto, el español está oculto */
-[lang="es"] { 
-    display: none !important; 
-}
-
-/* El inglés se muestra por defecto */
-[lang="en"] { 
-    display: inline-block; 
-}
-
-/* Ajuste para párrafos en inglés */
-p[lang="en"], div[lang="en"] {
-    display: block;
-}
-
-/* CUANDO SE ACTIVA EL ESPAÑOL: */
-body.lang-es [lang="en"] { 
-    display: none !important; 
-}
-
-body.lang-es [lang="es"] { 
-    display: inline-block !important; 
-}
-
-body.lang-es p[lang="es"], body.lang-es div[lang="es"] {
-    display: block !important;
-}
-
+        /* ─── Print ─── */
         @media print {
-            .language-switcher { display: none; }
-            .container { margin-top: 20px; }
-            a { color: #0000FF !important; }
-        }
-
-        @media (max-width: 600px) {
-            .language-switcher { right: 20px; top: 10px; }
-            .links-grid { grid-template-columns: 1fr; text-align: center; }
-            .address { padding-left: 0; }
+            .lang-switch { display: none; }
+            .page { padding: 40px 0; }
+            body { background: #fff; }
         }
     </style>
 </head>
 <body class="lang-en">
-    <div class="container">
-        <div class="header-logo-container">
-            <div class="botanical-logo" title="Daniel Carl Solander Botanical Engraving"></div>
-            <h1>SOLANDER 898</h1>
-        </div>
 
-        <div class="address">
-           <span lang="en">Thinking in decades. Compounding with intent.</span>
-           
-        </div>
+    <nav class="lang-switch">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+    </nav>
+
+    <main class="page">
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="header">
+            <div class="header-brand">
+                <div class="header-logo">
+                    <img src="solanderlogofondoblanco.png" alt="Solander898" />
+                </div>
+                <h1>Solander898</h1>
+            </div>
+            <div class="tagline">
+                <span lang="en">Decades, not quarters.</span>
+                <span lang="es">Décadas, no trimestres.</span>
+            </div>
+            <div class="sub-hero">
+                <span lang="en">An investment firm for patient capital.</span>
+                <span lang="es">Una firma de inversión para capital paciente.</span>
+            </div>
+        </header>
 
         <hr>
-        <div class="footer">
-        <span lang="en">   Copyright © 2026 898 Farnam St, LLC.<br>
-            <a href="mailto:info@solander898.com">info@solander898.com</a>
-        </span> 
-        
+
+        <!-- ═══ OVERVIEW ═══ -->
+        <section style="text-align: center;">
+            <div class="section-label">
+                <span lang="en">Overview</span>
+                <span lang="es">Nosotros</span>
+            </div>
+            <div class="prose">
+                <p lang="en">
+                    Solander898 is an investment firm built on a simple idea: we manage other people's capital the way we manage our own.
+                </p>
+                <p lang="en">
+                    We invest for the long term, grounded in fundamental research and independent thinking. Rather than optimizing for short-term outcomes, we aim to compound capital over time through disciplined decisions.
+                </p>
+                <p lang="en">
+                    We work with a small group of investors who think the same way.
+                </p>
+                <p lang="es">
+                    Solander898 es una firma de inversión construida sobre una premisa simple: el capital debe gestionarse como si fuera propio.
+                </p>
+                <p lang="es">
+                    Invertimos con un horizonte de largo plazo, guiados por el análisis fundamental y el pensamiento independiente. El objetivo no es optimizar resultados a corto plazo, sino componer el capital a lo largo del tiempo mediante decisiones disciplinadas.
+                </p>
+                <p lang="es">
+                    Trabajamos con un número limitado de inversores que comparten esta perspectiva.
+                </p>
+            </div>
+
+            <div class="pull-quote">
+                <span lang="en">We invest with conviction, not consensus. We think in decades, not quarters, because time combined with sound judgment becomes an edge.</span>
+                <span lang="es">Invertimos con convicción, no por consenso. Pensamos en décadas, no en trimestres, porque el tiempo, combinado con buen juicio, se convierte en ventaja.</span>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ═══ INVESTMENT APPROACH ═══ -->
+        <section>
+            <div class="section-label">
+                <span lang="en">Investment Approach</span>
+                <span lang="es">Enfoque de Inversión</span>
+            </div>
+            <div class="prose" style="margin-bottom: 36px;">
+                <p lang="en">
+                    We concentrate capital in our highest-conviction ideas, situations where we see a clear gap between market price and our estimate of intrinsic value. That gap is our margin of safety.
+                </p>
+                <p lang="en">
+                    Diversification is not a goal in itself; it is the byproduct of a disciplined selection process. We manage risk through deep understanding, a margin of safety, and a long time horizon.
+                </p>
+                <p lang="en">
+                    We are not chasing short-term returns. We seek lasting relationships with investors who share our view and who understand that discipline and patience are a competitive edge.
+                </p>
+                <p lang="es">
+                    Concentramos capital en nuestras ideas de mayor convicción, situaciones donde identificamos una brecha clara entre el precio de mercado y nuestra estimación del valor intrínseco. Esa brecha es nuestro margen de seguridad.
+                </p>
+                <p lang="es">
+                    La diversificación no es un objetivo en sí mismo. Es el resultado natural de un proceso de selección disciplinado. Gestionamos el riesgo a través del entendimiento profundo, el margen de seguridad y un horizonte de largo plazo.
+                </p>
+                <p lang="es">
+                    No perseguimos retornos a corto plazo. Buscamos relaciones duraderas con inversores que comparten nuestra perspectiva y que entienden que la disciplina y la paciencia son una ventaja competitiva.
+                </p>
+            </div>
+            <table class="approach-table">
+                <tr>
+                    <td><span lang="en">Universe</span><span lang="es">Universo</span></td>
+                    <td><span lang="en">Public equities, with a bias toward understandable and durable businesses.</span><span lang="es">Acciones públicas, con preferencia por negocios comprensibles y duraderos.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Focus</span><span lang="es">Foco</span></td>
+                    <td><span lang="en">The gap between price and intrinsic value.</span><span lang="es">Relación entre precio y valor intrínseco.</span></td>
+                </tr>
+                <tr>
+                    <td>Portfolio</td>
+                    <td><span lang="en">Concentrated, with capital allocated where conviction is highest.</span><span lang="es">Concentrado, con el capital asignado donde la convicción es mayor.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Investment Horizon</span><span lang="es">Horizonte de Inversión</span></td>
+                    <td style="vertical-align: middle;"><span lang="en">Multi-year, evaluated over full market cycles.</span><span lang="es">Multi-año, evaluado en ciclos completos de mercado.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Risk</span><span lang="es">Riesgo</span></td>
+                    <td><span lang="en">Defined as the permanent loss of capital, not as volatility.</span><span lang="es">Definido como la pérdida permanente de capital, no como volatilidad.</span></td>
+                </tr>
+                <tr>
+                    <td><span lang="en">Activity</span><span lang="es">Actividad</span></td>
+                    <td><span lang="en">Low. Decisions are infrequent, but deliberate.</span><span lang="es">Baja. Las decisiones son infrecuentes, pero deliberadas.</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ═══ 1. PHILOSOPHY ═══ -->
+        <section>
+            <div class="section-label">
+                <span lang="en">Philosophy</span>
+                <span lang="es">Filosofía</span>
+            </div>
+
+            <div class="philosophy-item">
+                <h3>
+                    <span lang="en">Owner Mindset</span>
+                    <span lang="es">Mentalidad de Dueño</span>
+                </h3>
+                <p>
+                    <span lang="en">We think like owners, not traders. Every investment reflects a long-term commitment to a business, not a position in a portfolio.</span>
+                    <span lang="es">Pensamos como dueños, no como traders. Cada inversión refleja un compromiso a largo plazo con un negocio, no una posición en un portafolio.</span>
+                </p>
+            </div>
+
+            <div class="philosophy-item">
+                <h3>
+                    <span lang="en">Price & Quality</span>
+                    <span lang="es">Precio y Calidad</span>
+                </h3>
+                <p>
+                    <span lang="en">We invest at the intersection of business quality, durability, and price. Value is not defined by low multiples, but by the gap between price and intrinsic value.</span>
+                    <span lang="es">Invertimos en la intersección entre calidad del negocio, durabilidad y precio. El valor no se define por múltiplos bajos, sino por la brecha entre precio y valor intrínseco.</span>
+                </p>
+            </div>
+
+            <div class="philosophy-item">
+                <h3>
+                    <span lang="en">Research-Driven</span>
+                    <span lang="es">Basados en Investigación</span>
+                </h3>
+                <p>
+                    <span lang="en">Our work starts with understanding businesses: how they make money, what protects them from competition, and what they can earn over the long run.</span>
+                    <span lang="es">Nuestro trabajo comienza por entender los negocios: cómo generan dinero, qué los protege de la competencia y qué pueden ganar en el largo plazo.</span>
+                </p>
+            </div>
+
+            <div class="philosophy-item">
+                <h3>
+                    <span lang="en">Patience as an Edge</span>
+                    <span lang="es">La Paciencia como Ventaja</span>
+                </h3>
+                <p>
+                    <span lang="en">We believe time is a structural advantage. Patience is not passive; it is deliberate, and it is what allows value to compound.</span>
+                    <span lang="es">Creemos que el tiempo es una ventaja estructural. La paciencia no es pasiva; es deliberada, y es lo que permite que el valor se componga.</span>
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ═══ WHERE WE INVEST ═══ -->
+        <section>
+            <div class="section-label">
+                <span lang="en">Where We Invest</span>
+                <span lang="es">En Qué Invertimos</span>
+            </div>
+            <div class="prose" style="margin-bottom: 32px;">
+                <p lang="en">
+                    We focus on public equities across three categories, each selected to fit our expected return profile.
+                </p>
+                <p lang="es">
+                    Nos enfocamos en acciones públicas en tres categorías, cada una seleccionada para ajustarse a nuestro perfil de retorno esperado.
+                </p>
+            </div>
+            <div class="universe">
+                <div class="bucket">
+                    <div class="bucket-header">
+                        <span class="bucket-num">I.</span>
+                        <span class="bucket-label">Compounders</span>
+                    </div>
+                    <div class="bucket-desc">
+                        <span lang="en">High-quality businesses with long runways to reinvest at high rates of return, shielded by durable competitive moats.</span>
+                        <span lang="es">Negocios de alta calidad con amplio espacio para reinvertir a altas tasas de retorno, protegidos por ventajas competitivas duraderas.</span>
+                    </div>
+                </div>
+                <div class="bucket">
+                    <div class="bucket-header">
+                        <span class="bucket-num">II.</span>
+                        <span class="bucket-label">
+                            <span lang="en">Mispriced Growth</span>
+                            <span lang="es">Crecimiento Subvaluado</span>
+                        </span>
+                    </div>
+                    <div class="bucket-desc">
+                        <span lang="en">Companies whose growth opportunities are not valued by the market.</span>
+                        <span lang="es">Compañías cuyas oportunidades de crecimiento no son valoradas por el mercado.</span>
+                    </div>
+                </div>
+                <div class="bucket">
+                    <div class="bucket-header">
+                        <span class="bucket-num">III.</span>
+                        <span class="bucket-label">Deep Value</span>
+                    </div>
+                    <div class="bucket-desc">
+                        <span lang="en">Businesses priced below our estimate of intrinsic value.</span>
+                        <span lang="es">Empresas cuyo precio se ubica por debajo de nuestra estimación del valor intrínseco.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ═══ SURVIVAL HORIZON ═══ -->
+        <section>
+            <div class="horizon">
+                <div class="horizon-header">
+                    <div class="horizon-label">
+                        <span lang="en">Survival Horizon</span>
+                        <span lang="es">Horizonte de Supervivencia</span>
+                    </div>
+                    <div class="horizon-dates"><span lang="en">2025 &nbsp;|&nbsp; 2060 (first milestone)</span><span lang="es">2025 &nbsp;|&nbsp; 2060 (primer hito)</span></div>
+                </div>
+                <div class="horizon-blocks" id="horizon-blocks"></div>
+                <div class="horizon-meta">
+                    <div class="horizon-note">
+                        <span lang="en">Measured in years, not in AUM.</span>
+                        <span lang="es">Medido en años, no en AUM.</span>
+                    </div>
+                    <div class="horizon-progress" id="horizon-progress"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ═══ ALIGNMENT & CONTACT ═══ -->
+        <section>
+            <div class="section-label">
+                <span lang="en">Alignment</span>
+                <span lang="es">Alineación</span>
+            </div>
+            <div class="contact">
+                <p>
+                    <span lang="en">We manage capital for people who see wealth not as a finish line, but as something meant to build and compound.</span>
+                    <span lang="es">Gestionamos capital para quienes conciben el patrimonio no como un fin, sino como algo que se construye y se compone en el tiempo.</span>
+                </p>
+                <p>
+                    <span lang="en">We measure performance in years, not quarters. We invest with conviction, act with discipline, and let time do its work.</span>
+                    <span lang="es">Medimos resultados en años, no en trimestres. Invertimos con convicción, actuamos con disciplina y dejamos que el tiempo haga su trabajo.</span>
+                </p>
+                <a href="mailto:info@solander898.com">info@solander898.com</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ═══ SOLANDER REFERENCE ═══ -->
+        <div class="solander-ref">
+            <span lang="en">Daniel Carl Solander, the Swedish botanist and explorer who devised the case still used by museums to preserve the world's most valuable manuscripts, prints, and drawings.</span>
+            <span lang="es">Daniel Carl Solander, botánico y explorador sueco, creador de la caja que aún utilizan los museos para preservar los manuscritos, grabados y dibujos más valiosos del mundo.</span>
         </div>
-    </div>
+
+        <!-- ═══ DISCLOSURES ═══ -->
+        <div class="disclosures">
+            <span lang="en">
+                Solander898 is a trade name of 898 Farnam St, LLC. 898 Farnam St, LLC is in the process of registering as an investment adviser with the U.S. Securities and Exchange Commission and currently serves only non-U.S. clients in jurisdictions where it is permitted to do so. Registration does not imply any particular level of skill or training. The information on this site is for informational purposes only and does not constitute investment, legal, or tax advice, nor an offer to buy or sell securities or advisory services. Past performance is not indicative of future results. See <a href="/disclosures">full disclosures</a>.
+            </span>
+            <span lang="es">
+                Solander898 es una marca comercial de 898 Farnam St, LLC. 898 Farnam St, LLC está tramitando su registro como asesor de inversiones ante la Comisión de Bolsa y Valores de EE. UU. (SEC) y actualmente presta servicios únicamente a clientes no estadounidenses en las jurisdicciones donde está autorizado a hacerlo. El registro no implica un determinado nivel de habilidad o formación. La información proporcionada tiene fines meramente informativos y no constituye asesoramiento en materia de inversiones, legal o fiscal, ni una oferta para comprar o vender valores o servicios de asesoramiento de inversiones. El rendimiento pasado no garantiza resultados futuros. Consulte la <a href="/disclosures">información completa</a>.
+            </span>
+        </div>
+
+        <div class="footer-line">
+            © 2026 898 Farnam St, LLC &nbsp;·&nbsp; <a href="mailto:info@solander898.com">Contact</a> &nbsp;·&nbsp; <a href="/disclosures">Disclosures</a>
+        </div>
+
+    </main>
+
+    <script>
+        function setLang(lang) {
+            document.body.classList.remove('lang-en', 'lang-es');
+            document.body.classList.add('lang-' + lang);
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+        }
+
+        // Survival Horizon: May 23, 2025 → Dec 31, 2060
+        (function () {
+            var start = new Date(2025, 4, 23); // May 23, 2025
+            var end   = new Date(2060, 11, 31); // Dec 31, 2060
+            var now   = new Date();
+            var totalDays   = (end - start) / 86400000;
+            var elapsedDays = Math.max(0, (now - start) / 86400000);
+            var pct = Math.min(100, (elapsedDays / totalDays) * 100);
+
+            var totalBlocks = 36; // ~1 block per year
+            var filledBlocks = Math.max(0, Math.round((pct / 100) * totalBlocks));
+
+            var container = document.getElementById('horizon-blocks');
+            for (var i = 0; i < totalBlocks; i++) {
+                var block = document.createElement('div');
+                block.className = 'horizon-block' + (i < filledBlocks ? ' filled' : '');
+                container.appendChild(block);
+            }
+
+            var isEs = document.body.classList.contains('lang-es');
+            document.getElementById('horizon-progress').innerHTML =
+                '<span lang="en">Progress ' + pct.toFixed(1) + '%</span>' +
+                '<span lang="es">Progreso ' + pct.toFixed(1) + '%</span>';
+        })();
+    </script>
+
 </body>
 </html>
